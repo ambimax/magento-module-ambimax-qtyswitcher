@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addJs" ifconfig="catalog/ambimax_qtyswitcher/display_on_product">
+                <name>ambimax/qtyswitcher/qtyswitcher.js</name>
+            </action>
+            <action method="addItem" ifconfig="catalog/ambimax_qtyswitcher/display_on_product">
+                <type>js_css</type>
+                <name>ambimax/qtyswitcher/qtyswitcher.css</name>
+            </action>
+        </reference>
+
+        <block type="core/template" name="ambimax_qtyswitcher" template="ambimax/qtyswitcher/config.phtml" />
+        <reference name="before_body_end">
+            <action method="append" ifconfig="catalog/ambimax_qtyswitcher/display_on_product"><block>ambimax_qtyswitcher</block></action>
+        </reference>
+    </catalog_product_view>
+
+    <checkout_cart_index>
+        <reference name="head">
+            <action method="addJs" ifconfig="catalog/ambimax_qtyswitcher/display_on_cart">
+                <name>ambimax/qtyswitcher/qtyswitcher.js</name>
+            </action>
+            <action method="addItem" ifconfig="catalog/ambimax_qtyswitcher/display_on_cart">
+                <type>js_css</type>
+                <name>ambimax/qtyswitcher/qtyswitcher.css</name>
+            </action>
+        </reference>
+
+        <block type="core/template" name="ambimax_qtyswitcher" template="ambimax/qtyswitcher/config.phtml" />
+        <reference name="before_body_end">
+            <action method="append" ifconfig="catalog/ambimax_qtyswitcher/display_on_cart"><block>ambimax_qtyswitcher</block></action>
+        </reference>
+    </checkout_cart_index>
+</layout>

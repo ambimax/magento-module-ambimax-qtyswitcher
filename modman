@@ -1,0 +1,7 @@
+src/app/code/community/Ambimax/QtySwitcher            app/code/community/Ambimax/QtySwitcher           
+src/app/design/frontend/base/default/layout/ambimax   app/design/frontend/base/default/layout/ambimax  
+src/app/design/frontend/base/default/template/ambimax app/design/frontend/base/default/template/ambimax
+src/app/etc/modules/Ambimax_QtySwitcher.xml           app/etc/modules/Ambimax_QtySwitcher.xml          
+src/js/ambimax/qtyswitcher                            js/ambimax/qtyswitcher
+src/app/locale/de_DE/Ambimax_QtySwitcher.csv          app/locale/de_DE/Ambimax_QtySwitcher.csv
+src/app/locale/de_CH/Ambimax_QtySwitcher.csv          app/locale/de_CH/Ambimax_QtySwitcher.csv
