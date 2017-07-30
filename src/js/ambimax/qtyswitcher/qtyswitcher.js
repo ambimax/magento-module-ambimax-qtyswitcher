@@ -5,6 +5,7 @@
  * @copyright   2016 ambimax® GmbH
  * @website     https://www.ambimax.de
  * @licence     MIT
+ * @codingStandardsIgnoreFile
  */
 qtyswitcher={
     /**
