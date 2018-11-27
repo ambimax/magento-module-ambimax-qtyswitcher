@@ -8,24 +8,26 @@
  * @codingStandardsIgnoreFile
  */
 qtyswitcher={
+    container: '',
+    minusElementClass: '.qty-minus',
+    plusElementClass: '.qty-plus',
+    qtyElementClass: '.qty',
+    minusButtonLabel: 'Lower Qty',
+    plusButtonLabel: 'Increase Qty',
+
     /**
      * Init qty switcher
-     *
-     * @param _config
      */
-    init:function(_config){
-
-        // set config
-        this.config = _config;
+    init:function(){
 
         // add html
         this.addQtyButtonsHtml();
 
         // Add observer
-        $$('.qty-minus').each(function(element) {
+        $$(qtyswitcher.container + ' ' + qtyswitcher.minusElementClass).each(function(element) {
             element.observe('click', qtyswitcher.decreaseQty);
         });
-        $$('.qty-plus').each(function(element) {
+        $$(qtyswitcher.container + ' ' + qtyswitcher.plusElementClass).each(function(element) {
             element.observe('click', qtyswitcher.increaseQty);
         });
     },
@@ -33,10 +35,10 @@ qtyswitcher={
      * Add qty switcher html
      */
     addQtyButtonsHtml: function() {
-        $$('.qty').each(function(qtyElement){
+        $$(qtyswitcher.container + ' ' + qtyswitcher.qtyElementClass).each(function(qtyElement){
             qtyElement.insert({
-                before: '<button type="button" title="' + qtyswitcher.config.minusButtonLabel + '" class="button qty-minus" value="-"><span><span>-</span></span></button>',
-                after: '<button type="button" title="' + qtyswitcher.config.plusButtonLabel + '" class="button qty-plus" value="+"><span><span>+</span></span></button>'
+                before: '<button type="button" title="' + qtyswitcher.minusButtonLabel + '" class="button qty-minus" value="-"><span><span>-</span></span></button>',
+                after: '<button type="button" title="' + qtyswitcher.plusButtonLabel + '" class="button qty-plus" value="+"><span><span>+</span></span></button>'
             });
         });
     },
@@ -59,7 +61,7 @@ qtyswitcher={
      * @returns {qtyswitcher}
      */
     increaseQty: function () {
-        var qtyElement = $(this).previous('input.qty');
+        var qtyElement = $(this).previous(qtyswitcher.qtyElementClass);
 
         if(qtyElement) {
             qtyswitcher.updateQty(qtyElement, $(this), ++qtyElement.value);
@@ -73,7 +75,7 @@ qtyswitcher={
      * @returns {qtyswitcher}
      */
     decreaseQty: function () {
-        var qtyElement = $(this).next('input.qty');
+        var qtyElement = $(this).next(qtyswitcher.qtyElementClass);
 
         if(qtyElement) {
             qtyswitcher.updateQty(qtyElement, $(this), --qtyElement.value);
